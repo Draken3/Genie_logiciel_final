@@ -1,0 +1,19 @@
+{% extends 'shared_layout/base.html' %}
+{%block title%} Recours {%endblock title%}
+{%block contents%}
+
+<h1>Déposer un recours</h1>
+    <p>Cours : {{ cotes.cours }}</p>
+    <form method="post" action="{% url 'deposer-recours' cotes.id %}">
+        {% csrf_token %}
+        <label for="raison">Raison du recours :</label><br>
+        <textarea id="raison" name="raison" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Déposer">
+    </form>
+    <p>Vous pouvez également <a href="{% url 'resultats' %}">retourner aux résultats</a>.</p>
+
+
+
+
+
+    {%endblock contents%}
